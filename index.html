@@ -55,11 +55,18 @@
     .profile-portrait,.profile-portrait-inner{border-radius:48% / 38%!important}
 
 
-    /* Home feed: edge-to-edge posts with tall media; captions and actions stay below */
+    /* Home feed: true full-bleed posts, with text and actions below media */
     @media(max-width:599px){
-      .app main .post{width:calc(100% + 34px);margin:12px -17px 17px;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;overflow:hidden}
+      .app main .post{
+        width:100vw;
+        margin:0 calc(50% - 50vw);
+        border:0;
+        border-radius:0;
+        overflow:hidden;
+        background:transparent;
+      }
       .app main .post-head{padding:14px 17px}
-      .app main .post-art{height:72svh;min-height:420px;max-height:760px;width:100%;border-radius:0}
+      .app main .post-art{width:100%;height:72svh;min-height:420px;max-height:760px;border-radius:0}
       .app main .post-copy{padding:13px 17px 10px}
       .app main .post-actions{padding:4px 17px 17px;gap:20px}
     }
