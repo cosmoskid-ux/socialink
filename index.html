@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090817">
+  <meta name="description" content="Socialink — connect beyond the ordinary.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <title>Socialink</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090817;--panel:#121126;--panel2:#191632;--purple:#9a55ff;--purple2:#6c3bd1;--cyan:#65d9ff;--gold:#f3c86b;--muted:#aaa6c2;--line:rgba(196,174,255,.13)}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#30205a 0%,#110f27 38%,var(--bg) 72%);color:#f7f4ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh;padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+    button{font:inherit;color:inherit;cursor:pointer}.app{max-width:760px;margin:auto;padding:0 17px}
+    header{height:70px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5;background:linear-gradient(#0c0a1bf2,#0c0a1bd9);backdrop-filter:blur(16px);margin:0 -17px;padding:0 17px;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:21px;letter-spacing:-.7px}.brand-mark{width:32px;height:32px;border-radius:11px;background:linear-gradient(145deg,#c48aff,#6234c9 65%,#2a8ab2);display:grid;place-items:center;box-shadow:0 0 22px #9255ff55;font-size:18px}.brand span:last-child{background:linear-gradient(90deg,#fff,#cdb4ff);background-clip:text;color:transparent}
+    .header-actions{display:flex;gap:9px}.icon-btn{height:39px;width:39px;border:1px solid var(--line);background:#17142b;border-radius:14px;display:grid;place-items:center;font-size:17px}
+    .welcome{padding:23px 2px 13px}.eyebrow{color:var(--cyan);font-size:11px;font-weight:750;letter-spacing:2px;text-transform:uppercase}.welcome h1{font-size:27px;line-height:1.2;margin:7px 0 5px;letter-spacing:-.8px}.welcome p{color:var(--muted);font-size:13px;margin:0}
+    .section-head{display:flex;align-items:center;justify-content:space-between;margin:23px 1px 13px}.section-head h2{font-size:16px;margin:0;letter-spacing:-.2px}.subtle-link{border:0;background:none;color:#c6a8ff;font-size:12px;padding:5px}
+    .stories{display:flex;gap:14px;overflow-x:auto;padding:2px 1px 7px;scrollbar-width:none}.stories::-webkit-scrollbar{display:none}.story{flex:0 0 66px;text-align:center;border:0;background:none;padding:0}.avatar-wrap{width:62px;height:62px;border-radius:22px;padding:2px;background:linear-gradient(140deg,#e6c16b,#9a55ff,#4dc8e8);position:relative;margin:0 auto 7px}.avatar{width:100%;height:100%;border-radius:20px;display:grid;place-items:center;font-size:24px;background:linear-gradient(145deg,#31224c,#17142b);border:2px solid #100e20}.story-name{font-size:10px;color:#d9d4e9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.star{position:absolute;left:-5px;bottom:-4px;width:22px;height:22px;border-radius:9px;background:var(--gold);color:#2a1c08;border:2px solid #100e20;display:grid;place-items:center;font-size:12px}
+    .discover-card{background:linear-gradient(120deg,#21183f,#17152e 60%,#112536);border:1px solid #9d73e333;border-radius:20px;padding:15px;margin-top:15px;position:relative;overflow:hidden}.discover-card:after{content:"✦";position:absolute;right:17px;top:8px;font-size:68px;color:#b58bff18}.discover-top{display:flex;justify-content:space-between;align-items:center}.discover-top h3{margin:0;font-size:15px}.discover-top span{font-size:10px;color:var(--cyan);letter-spacing:1px}.discover-card p{font-size:12px;color:var(--muted);margin:5px 0 13px}.people{display:flex;gap:10px;overflow:auto;scrollbar-width:none}.person{min-width:145px;flex:1;background:#0f0d20a8;border:1px solid var(--line);border-radius:15px;padding:10px}.person-row{display:flex;align-items:center;gap:8px}.mini-avatar{width:35px;height:35px;border-radius:13px;background:linear-gradient(135deg,#7347a9,#1b8295);display:grid;place-items:center}.person strong{display:block;font-size:11px}.person small{color:var(--muted);font-size:10px}.follow{width:100%;margin-top:9px;border:1px solid #9c67e6;background:#8e51df22;color:#d9c2ff;border-radius:10px;padding:7px;font-size:11px;font-weight:700}.follow.following{background:#2b2540;color:#b8e8ff;border-color:#52627a}
+    .feed-title{margin-top:25px}.post{border:1px solid var(--line);background:linear-gradient(160deg,#17142b,#100e20);border-radius:19px;overflow:hidden;margin:12px 0 17px}.post-head{display:flex;align-items:center;gap:9px;padding:13px}.post-avatar{width:38px;height:38px;border-radius:14px;background:linear-gradient(145deg,#d08a8a,#5d398e);display:grid;place-items:center}.post-user{flex:1}.post-user strong{font-size:12px}.verified{color:var(--gold);font-size:12px}.post-user small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.more{border:0;background:none;color:#aaa;font-size:20px}.post-art{height:205px;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 45%,#6543a6 0,#30204f 29%,#17152e 63%,#101020 100%);position:relative;overflow:hidden}.post-art:before,.post-art:after{content:"";position:absolute;border:1px solid #d6b6ff3b;border-radius:50%;width:230px;height:230px;transform:rotate(-28deg) scaleY(.42)}.post-art:after{width:290px;height:290px;transform:rotate(28deg) scaleY(.42)}.post-art div{z-index:1}.post-art .planet{font-size:57px;filter:drop-shadow(0 0 18px #c58aff88)}.post-art strong{display:block;font-size:16px;letter-spacing:1px}.post-art small{color:#d6c7f2;font-size:10px;letter-spacing:2px}.post-copy{font-size:12px;color:#ddd7eb;padding:0 13px 10px}.post-actions{display:flex;gap:16px;padding:0 13px 13px;color:#d6c9ec;font-size:12px}.post-actions button{border:0;background:none;padding:0}.liked{color:#ff8bb7!important}
+    nav{position:fixed;bottom:0;left:0;right:0;z-index:10;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:#0c0a1bf2;backdrop-filter:blur(20px);border-top:1px solid var(--line)}.nav-inner{max-width:650px;margin:auto;display:flex;justify-content:space-around;align-items:center}.tab{border:0;background:none;color:#8e89a7;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;min-width:54px}.tab .glyph{font-size:20px;line-height:22px}.tab.active{color:#d7baff}.create{width:48px;height:43px;border:0;border-radius:16px;background:linear-gradient(135deg,#c48aff,#7743d6);box-shadow:0 0 22px #9458e855;font-size:27px;color:white;line-height:1}
+    .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#282044;border:1px solid #a47ce655;border-radius:13px;padding:10px 15px;font-size:12px;box-shadow:0 8px 30px #0008;z-index:20;display:none;white-space:nowrap}.modal-backdrop{position:fixed;inset:0;background:#05040bdc;z-index:30;display:none;align-items:flex-end;justify-content:center;padding:14px}.modal{width:min(100%,520px);background:#17142b;border:1px solid var(--line);border-radius:22px;padding:19px;margin-bottom:env(safe-area-inset-bottom)}.modal h3{margin:0 0 7px}.modal p{color:var(--muted);font-size:12px}.modal-actions{display:flex;gap:9px}.modal-actions button{flex:1;padding:11px;border-radius:12px;border:1px solid var(--line);background:#282044}.modal-actions button:last-child{background:#8b50d9;border-color:#8b50d9}
+    .empty{display:none;text-align:center;padding:45px 15px;color:var(--muted)}.empty strong{display:block;color:#eee;font-size:18px;margin-bottom:6px}
+    @media(min-width:600px){.app{padding:0 25px}header{margin:0 -25px;padding:0 25px}.post-art{height:280px}.welcome h1{font-size:32px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand"><div class="brand-mark">✦</div><span>Socialink</span></div>
+      <div class="header-actions"><button class="icon-btn" aria-label="Search" id="searchBtn">⌕</button><button class="icon-btn" aria-label="Notifications" id="bellBtn">♧</button></div>
+    </header>
+    <main id="homeScreen">
+      <section class="welcome"><div class="eyebrow">YOUR UNIVERSE, YOUR PEOPLE</div><h1>Find your orbit.</h1><p>Good connections make the universe feel smaller.</p></section>
+      <div class="section-head"><h2>Spotlight</h2><button class="subtle-link" id="allSpotlight">See all</button></div>
+      <section class="stories" aria-label="Spotlight accounts">
+        <button class="story" data-name="Your Spotlight"><div class="avatar-wrap"><div class="avatar">＋</div></div><div class="story-name">Your story</div></button>
+        <button class="story" data-name="Amara"><div class="avatar-wrap"><div class="avatar">🌻</div><span class="star">★</span></div><div class="story-name">Amara</div></button>
+        <button class="story" data-name="Kairo"><div class="avatar-wrap"><div class="avatar">🎧</div><span class="star">★</span></div><div class="story-name">Kairo</div></button>
+        <button class="story" data-name="Nia"><div class="avatar-wrap"><div class="avatar">🪐</div><span class="star">★</span></div><div class="story-name">Nia</div></button>
+        <button class="story" data-name="Zuri"><div class="avatar-wrap"><div class="avatar">🦋</div><span class="star">★</span></div><div class="story-name">Zuri</div></button>
+        <button class="story" data-name="Timo"><div class="avatar-wrap"><div class="avatar">⚡</div><span class="star">★</span></div><div class="story-name">Timo</div></button>
+      </section>
+      <section class="discover-card">
+        <div class="discover-top"><h3>Discover your people</h3><span>✦ GALAXY DISCOVERY</span></div>
+        <p>New voices and fresh perspectives are waiting.</p>
+        <div class="people">
+          <article class="person"><div class="person-row"><div class="mini-avatar">🎨</div><div><strong>@imani.creates</strong><small>Art & creativity</small></div></div><button class="follow">＋ Follow</button></article>
+          <article class="person"><div class="person-row"><div class="mini-avatar">🎮</div><div><strong>@jayplays</strong><small>Gaming</small></div></div><button class="follow">＋ Follow</button></article>
+          <article class="person"><div class="person-row"><div class="mini-avatar">📸</div><div><strong>@nuru.frames</strong><small>Photography</small></div></div><button class="follow">＋ Follow</button></article>
+        </div>
+      </section>
+      <div class="section-head feed-title"><h2>Your feed</h2><button class="subtle-link" id="feedFilter">For you⌄</button></div>
+      <article class="post">
+        <div class="post-head"><div class="post-avatar">🌌</div><div class="post-user"><strong>@cosmic.dreamer <span class="verified">✦</span></strong><small>2 hours ago · Public</small></div><button class="more" aria-label="More options">···</button></div>
+        <div class="post-art"><div><div class="planet">🪐</div><strong>BEYOND THE ORDINARY</strong><small>THERE'S A WHOLE UNIVERSE OUT THERE</small></div></div>
+        <div class="post-copy">Every connection is a new constellation. ✨</div>
+        <div class="post-actions"><button class="like-btn">♡ <span>128</span> likes</button><button class="comment-btn">◯ 24 comments</button><button class="share-btn">↗ Share</button></div>
+      </article>
+      <article class="post">
+        <div class="post-head"><div class="post-avatar" style="background:linear-gradient(145deg,#4b9b9a,#59418f)">🌿</div><div class="post-user"><strong>@nia.explores</strong><small>5 hours ago · Public</small></div><button class="more" aria-label="More options">···</button></div>
+        <div class="post-art" style="background:radial-gradient(circle at 50% 50%,#397b7d,#1c3450 50%,#101020)"><div><div class="planet">🌙</div><strong>TAKE THE SCENIC ROUTE</strong><small>MAKE ROOM FOR WONDER</small></div></div>
+        <div class="post-copy">A little reminder to notice the magic around you. 🌙</div>
+        <div class="post-actions"><button class="like-btn">♡ <span>86</span> likes</button><button class="comment-btn">◯ 11 comments</button><button class="share-btn">↗ Share</button></div>
+      </article>
+    </main>
+    <section class="empty" id="otherScreen"><strong id="otherTitle">Reels</strong><span>This space is ready for the next Socialink feature.</span></section>
+  </div>
+  <nav aria-label="Main navigation"><div class="nav-inner">
+    <button class="tab active" data-tab="Home"><span class="glyph">⌂</span>Home</button>
+    <button class="tab" data-tab="Reels"><span class="glyph">▷</span>Reels</button>
+    <button class="create" id="createBtn" aria-label="Create">＋</button>
+    <button class="tab" data-tab="Messages"><span class="glyph">▤</span>Messages</button>
+    <button class="tab" data-tab="Your Page"><span class="glyph">◉</span>Your Page</button>
+  </div></nav>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="modalBackdrop"><div class="modal"><h3 id="modalTitle">Create something</h3><p id="modalText">Choose what you want to share with your universe.</p><div class="modal-actions"><button id="cancelModal">Cancel</button><button id="confirmModal">Continue</button></div></div></div>
+  <script>
+    const toastEl=document.getElementById('toast');
+    function toast(message){toastEl.textContent=message;toastEl.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toastEl.style.display='none',2100)}
+    document.querySelectorAll('.follow').forEach(btn=>btn.addEventListener('click',()=>{const on=btn.classList.toggle('following');btn.textContent=on?'✓ Following':'＋ Follow';toast(on?'You are following this account':'Follow removed')}));
+    document.querySelectorAll('.like-btn').forEach(btn=>btn.addEventListener('click',()=>{const liked=btn.classList.toggle('liked');const count=btn.querySelector('span');count.textContent=Number(count.textContent)+(liked?1:-1);btn.firstChild.textContent=liked?'♥ ':'♡ '}));
+    document.querySelectorAll('.comment-btn,.share-btn').forEach(btn=>btn.addEventListener('click',()=>toast('This feature will connect when accounts are added.')));
+    document.querySelectorAll('.story').forEach(btn=>btn.addEventListener('click',()=>toast(btn.dataset.name==='Your Spotlight'?'Your Spotlight creator is coming soon.':btn.dataset.name+'’s Spotlight preview')));
+    document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');const home=btn.dataset.tab==='Home';document.getElementById('homeScreen').style.display=home?'block':'none';document.getElementById('otherScreen').style.display=home?'none':'block';document.getElementById('otherTitle').textContent=btn.dataset.tab; if(!home)toast(btn.dataset.tab+' is part of the Socialink build roadmap.')}));
+    const backdrop=document.getElementById('modalBackdrop');document.getElementById('createBtn').addEventListener('click',()=>{backdrop.style.display='flex'});document.getElementById('cancelModal').addEventListener('click',()=>backdrop.style.display='none');document.getElementById('confirmModal').addEventListener('click',()=>{backdrop.style.display='none';toast('Post creation is coming in the next build.')});backdrop.addEventListener('click',e=>{if(e.target===backdrop)backdrop.style.display='none'});
+    document.getElementById('searchBtn').addEventListener('click',()=>toast('Search is coming soon.'));document.getElementById('bellBtn').addEventListener('click',()=>toast('You’re all caught up.'));document.getElementById('allSpotlight').addEventListener('click',()=>toast('More Spotlight stories are coming soon.'));document.getElementById('feedFilter').addEventListener('click',()=>toast('More feed controls are coming soon.'));
+    if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))}
+  </script>
+</body>
+</html>
